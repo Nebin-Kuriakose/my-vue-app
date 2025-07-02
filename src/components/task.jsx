@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import Card from "./Card";
+import Card from "./card";
 import Input from "./input";
+
 const Tasks = () => {
 
     const initial_task = [];
@@ -8,11 +9,8 @@ const Tasks = () => {
     const getTasks = async () => {
         const response = await fetch("https://to-do-backend-jy9d.onrender.com")
         const taskList = await response.json();
-        console.log(taskList);
         setTasks(taskList);
     }
-
-
 
     useEffect(() => {
         getTasks()
@@ -33,25 +31,25 @@ const Tasks = () => {
                 body: JSON.stringify(newTaskObj)
             })
 
-            if(response.status==201){
-                getTasks();
-                alert("New task Added Successfully");
-            }
-            else{
-                alert("Could not add task");
-            }
+        if (response.status == 201) {
+            getTasks();
+            alert("New task Added Successfully");
+        }
+        else {
+            alert("Could not add task");
+        }
 
     }
 
     const deleteTaskHandler = async (taskId) => {
-        const response= await fetch("https://to-do-backend-jy9d.onrender.com/"+taskId,{method:"DELETE",})
-          if(response.status==200){
-                getTasks();
-                alert("Task Deleted Successfully");
-            }
-            else{
-                alert("Could Not Delete Task");
-            }
+        const response = await fetch("https://to-do-backend-jy9d.onrender.com/" + taskId, { method: "DELETE", })
+        if (response.status == 200) {
+            getTasks();
+            alert("Task Deleted Successfully");
+        }
+        else {
+            alert("Could Not Delete Task");
+        }
     }
     return (
         <div id='tasks'>

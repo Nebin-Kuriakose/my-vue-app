@@ -1,8 +1,9 @@
 import './App.css'
-import Tasks from './componenets/task';
+import Tasks from './components/task';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import About from './componenets/about';
-import Navbar from './componenets/navbar';
+import About from './components/about';
+import Navbar from './components/navbar';
+
 function App() {
 
   return (
