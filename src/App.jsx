@@ -1,5 +1,3 @@
-import Input from './componenets/input';
-import Card from './componenets/Card';
 import './App.css'
 import Tasks from './componenets/task';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
